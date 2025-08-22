@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Radio Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #00ffff;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .player-box {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+      text-align: center;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #playBtn {
+      background-color: #00cc66;
+      color: #fff;
+    }
+
+    #stopBtn {
+      background-color: #cc0033;
+      color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="player-box">
+    <h1>🎧 Ascolta la tua Radio Live</h1>
+    <audio id="radioPlayer">
+      <source src="https://tuoradio.com/stream.mp3" type="audio/mpeg">
+      Il tuo browser non supporta l'audio HTML5.
+    </audio>
+    <div>
+      <button id="playBtn">▶️ Play</button>
+      <button id="stopBtn">⏹️ Stop</button>
+    </div>
+  </div>
+
+  <script>
+    const player = document.getElementById('radioPlayer');
+    const playBtn = document.getElementById('playBtn');
+    const stopBtn = document.getElementById('stopBtn');
+
+    playBtn.addEventListener('click', () => {
+      player.play();
+    });
+
+    stopBtn.addEventListener('click', () => {
+      player.pause();
+      player.currentTime = 0;
+    });
+  </script>
+</body>
+</html>
